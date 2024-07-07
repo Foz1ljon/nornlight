@@ -46,7 +46,7 @@
     </label>
 
     <button
-      class="flex items-center justify-center gap-4 py-2 px-6  w-[260px] bg-blue-500 text-white font-semibold"
+      class="flex items-center justify-center gap-4 py-2 px-6  md:w-[260px] w-[210px] bg-blue-500 text-white font-semibold"
     >
       <i class="fa-solid fa-floppy-disk"></i>
       <p>Save</p>
