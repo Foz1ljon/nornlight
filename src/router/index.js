@@ -21,10 +21,16 @@ import CategoryList from "@/components/Dashboard/categories-list.vue";
 import UpdateProducts from "@/components/Dashboard/update-products.vue";
 import UpdateCategory from "@/components/Dashboard/update-category.vue";
 import Order from "@/components/Dashboard/order-list.vue";
+import Login from "@/views/Login.vue";
 
 const router = createRouter({
   history: createWebHistory(),
   routes: [
+    {
+      path: "/login",
+      name: "login",
+      component: Login,
+    },
     {
       path: "/dashboard",
       name: "dashboard",

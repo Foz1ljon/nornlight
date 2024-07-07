@@ -68,13 +68,95 @@
         </div>
       </div>
     </div>
+    <form>
+      <div class="w-full bg-[#F2F2F2] my-8 p-3 rounded-lg">
+        <div class="flex flex-col gap-5">
+          <div class="flex py-10 p-5 gap-8 flex-col items-start">
+            <div class="flex justify-around gap-20">
+              <input
+                type="text"
+                class="py-2 pl-8 pr-24 rounded-3xl border-2 border-primary bg-[#F2F2F2] outline-none"
+                placeholder="ФИО"
+              />
+              <input
+                type="text"
+                class="py-2 pl-8 pr-24 rounded-3xl border-2 border-primary bg-[#F2F2F2] outline-none"
+                placeholder="телефон"
+              />
+              <input
+                type="email"
+                class="py-2 pl-8 pr-24 rounded-3xl border-2 border-primary bg-[#F2F2F2] outline-none"
+                placeholder="Электронная почта"
+              />
+            </div>
+
+            <div class="flex flex-col gap-6 items-start">
+              <p class="text-3xl text-primary font-bold">Доставка</p>
+              <input
+                class="py-2 pl-8 pr-24 rounded-3xl border-2 border-primary bg-[#F2F2F2] outline-none"
+                type="text"
+                placeholder="Адрес доставки"
+              />
+              <textarea
+                class="h-[20vh] pl-8 pr-24 rounded-3xl border-2 border-primary bg-[#F2F2F2] outline-none"
+                placeholder="Комментарий"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-full bg-[#F2F2F2] my-8 p-6 py-10 rounded-lg">
+        <div class="flex flex-col gap-6">
+          <p class="text-3xl text-primary font-bold">Оплата</p>
+
+          <div class="flex gap-6">
+            <p class="text-base text-primary/50 font-semibold">
+              Товары.............................................12 300₽
+            </p>
+            <p class="text-base text-primary/50 font-semibold">
+              Доставка..............................................580₽
+            </p>
+          </div>
+
+          <div class="flex flex-col gap-5">
+            <p class="text-3xl text-primary font-bold">12 800₽</p>
+
+            <div class="flex gap-4">
+              <button
+                type="submit"
+                class="py-2.5 px-36 rounded-full bg-primary text-white"
+              >
+                Купить
+              </button>
+              <p class="flex items-center gap-2 text-xs text-primary/50">
+                <button
+                  @click="isAgree = !isAgree"
+                  type="button"
+                  :class="
+                    isAgree
+                      ? 'bg-primary border border-primary text-white'
+                      : 'border border-primary'
+                  "
+                  class="p-1.5 px-2 rounded-full"
+                >
+                  <i class="fa-solid fa-check"></i>
+                </button>
+                Я согласен наобработку моих персональных данных
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
   </div>
 </template>
 
 <script setup>
-import { computed } from "vue";
+import { computed, ref } from "vue";
 import { useProductStore } from "../stores/productStore";
 
+const isAgree = ref(false);
 const productStore = useProductStore();
 
 // Get the cart items from the store
