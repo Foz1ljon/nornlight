@@ -1,0 +1,30 @@
+{
+  "cart": [
+    {
+      "id": 5,
+      "title": "Встраиваемый светильник Novotech",
+      "image": "/images/image.png",
+      "oldPrice": 7000,
+      "newPrice": 5603,
+      "color": "Жёлтый",
+      "year": 2016,
+      "diam": 27.5,
+      "material": "Карбон",
+      "size": "L",
+      "country": "Швейцария",
+      "manufacturer": "Scott",
+      "tires": "Schwalbe Rocket Ron EVO / 2.1 127EPI Kevlar Bead Tubeless Easy / PaceStar compound",
+      "rama": "Scale Carbon / HMX-технология / технология IMP / Коническая рулевая труба / BB92 / Технология SDS / Дропауты IDS SL",
+      "shtir": "Ritchey WCS 700 Series: Carbon Link FlexLogic / 31.6mm 900 Series: Carbon 2B SDS / 34.9mm",
+      "sedlo": "Ritchey WCS Streem V3 Titanium rails",
+      "vilka": "Ritchey WCS Streem V3 Titanium rails"
+    }
+  ],
+  "customer": {
+    "name": "vfjv",
+    "phone": "943035435345",
+    "email": "dcdvs@fd0v.sds",
+    "address": "kjjdsjkkjjdf",
+    "comment": "jvfnnfdjnfdaja;l'vvsoa'noinoiafwobveqouboinboimbtpiv ejp] je]pov ksrpek"
+  }
+}

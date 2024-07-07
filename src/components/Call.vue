@@ -19,13 +19,13 @@
         <form @submit.prevent="send" class="flex flex-col gap-4 py-5">
           <input
             v-model="form.fullname"
-            class="py-3 sm:px-8 px-6 border border-black rounded-full"
+            class="py-3 sm:px-8 px-6 border border-black outline-none rounded-full"
             type="text"
             placeholder="ФИО"
           />
           <input
             v-model="form.phone"
-            class="py-3 sm:px-8 px-6 border border-black rounded-full placeholder:text-base placeholder:text-primary/50"
+            class="py-3 sm:px-8 px-6 border border-black outline-none rounded-full placeholder:text-base placeholder:text-primary/50"
             type="text"
             placeholder="телефон"
           />

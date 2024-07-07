@@ -107,14 +107,17 @@ const router = createRouter({
 
 // Add a global navigation guard
 router.beforeEach((to, from, next) => {
+  const token = localStorage.getItem("token"); // Assuming token is stored in localStorage
+
   if (to.matched.some((record) => record.meta.requiresAuth)) {
-    if (!isAuthenticated()) {
+    if (!token) {
       next({ name: "login" });
     } else {
       next();
     }
-  } else if (to.name === "login" && isAuthenticated()) {
+  } else if (to.name === "login" && token) {
     next({ name: "dashboard" });
+    router.push({name: "dashboard"})
   } else {
     next();
   }
