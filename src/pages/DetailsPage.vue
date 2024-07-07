@@ -6,7 +6,7 @@
     <Loader />
   </div>
 
-  <div v-if="!productStore.isLoading" class="container ">
+  <div v-if="!productStore.isLoading" class="container mb-10">
     <div class="flex md:justify-between md:flex-row flex-col items-center">
       <div
         class="border xl:w-[600px] lg:w-[450px] w-full gap-6 flex justify-center items-center"
@@ -123,6 +123,24 @@
         </div>
       </div>
     </div>
+
+    <p class="lg:text-6xl sm:text-5xl mt-14 text-3xl font-bold text-primary">
+      Характеристика
+    </p>
+
+    <div class="flex flex-col gap-1 my-5">
+      <div
+        v-for="(item, i) in detail"
+        :key="i"
+        :class="i % 2 == 0 ? 'bg-[#F8F8F8]' : 'bg-white'"
+        class="flex justify-between py-4 px-2"
+      >
+        <p class="md:text-base text-sm">{{ item.name }}</p>
+        <p class="md:w-[606px] w-full md:text-base text-sm text-end">
+          {{ item.xar }}
+        </p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -131,6 +149,33 @@ import { useRoute } from "vue-router";
 import { useProductStore } from "../stores/productStore";
 import { computed, onMounted } from "vue";
 import Loader from "../components/Loader.vue";
+
+const detail = [
+  { name: "Цвет", xar: "Жёлтый" },
+  { name: "Год", xar: "2016" },
+  { name: "Диаметр колеса", xar: "27.5" },
+  { name: "Материал рамы", xar: "Карбон" },
+  { name: "Размер", xar: "L" },
+  { name: "Страна", xar: "Швейцария" },
+  { name: "Производитель", xar: "Scott" },
+  {
+    name: "Покрышки",
+    xar: "Schwalbe Rocket Ron EVO / 2.1 127EPI Kevlar Bead Tubeless Easy / PaceStar compound",
+  },
+  {
+    name: "Рама",
+    xar: "Scale Carbon / HMX-технология / технология IMP / Коническая рулевая труба / BB92 / Технология SDS / Дропауты IDS SL",
+  },
+  {
+    name: "Подседельный Штырь",
+    xar: "Ritchey WCS 700 Series: Carbon Link FlexLogic / 31.6mm 900 Series: Carbon 2B SDS / 34.9mm",
+  },
+  { name: "Седло", xar: "Ritchey WCS Streem V3 Titanium rails" },
+  {
+    name: "Вилка",
+    xar: `Rock Shox SID RL3 Air / демпфер DNA3 3-режима / 15mm QR axle / коническая рулевая труба / Удалённая блокировка, регулировка отскока / ход 100mm`,
+  },
+];
 
 const route = useRoute();
 const productStore = useProductStore();

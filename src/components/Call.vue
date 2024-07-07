@@ -12,8 +12,8 @@
           <i class="text-2xl fa-solid fa-xmark"></i>
         </button>
       </div>
-      <div class="flex flex-col justify-center gap-10 lg:py-7">
-        <p class="lg:text-6xl md:text-5xl text-3xl px-8 font-bold text-primary">
+      <div class="flex flex-col justify-center md:gap-10 lg:py-7">
+        <p class="lg:text-6xl md:text-5xl sm:text-3xl text-2xl md:px-8 font-bold text-primary">
           Заполните, и мы перезвоним
         </p>
         <form @submit.prevent="send" class="flex flex-col gap-4 py-5">
