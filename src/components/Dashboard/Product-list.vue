@@ -23,6 +23,4 @@ const productStore = useProductStore();
 onMounted(() => {
   productStore.fetchProducts();
 });
-
-const { products, isLoading } = productStore;
 </script>
