@@ -10,7 +10,7 @@
     <label for="title">
       <p>Product title</p>
       <input
-        class="py-2 border md:px-6 bg-primary/50 placeholder:text-primary"
+        class="py-2 border md:px-6 px-2 bg-primary/50 placeholder:text-primary"
         type="text"
         id="title"
         v-model="productsStore.product.title"
@@ -20,7 +20,7 @@
     <label for="url">
       <p>Product image url</p>
       <input
-        class="py-2 border md:px-6 bg-primary/50 placeholder:text-primary"
+        class="py-2 border md:px-6 px-2 bg-primary/50 placeholder:text-primary"
         type="text"
         id="url"
         v-model="productsStore.product.image"
@@ -31,7 +31,7 @@
     <label for="oldPrice">
       <p>Product old price</p>
       <input
-        class="py-2 border md:px-6 bg-primary/50 placeholder:text-primary"
+        class="py-2 border md:px-6 px-2 bg-primary/50 placeholder:text-primary"
         type="number"
         id="oldPrice"
         v-model="productsStore.product.oldPrice"
@@ -42,7 +42,7 @@
     <label for="newPrice">
       <p>Product new price</p>
       <input
-        class="py-2 border md:px-6 bg-primary/50 placeholder:text-primary"
+        class="py-2 border md:px-6 px-2 bg-primary/50 placeholder:text-primary"
         type="number"
         id="newPrice"
         v-model="productsStore.product.newPrice"

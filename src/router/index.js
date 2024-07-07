@@ -16,10 +16,7 @@ import Dashboard from "../views/Dashboard.vue";
 import MainPage from "../pages/MainPage.vue";
 import CreateProducts from "@/components/Dashboard/create-products.vue";
 import ProductList from "../components/Dashboard/Product-list.vue";
-import CreateCategory from "@/components/Dashboard/create-categories.vue";
-import CategoryList from "@/components/Dashboard/categories-list.vue";
 import UpdateProducts from "@/components/Dashboard/update-products.vue";
-import UpdateCategory from "@/components/Dashboard/update-category.vue";
 import Order from "@/components/Dashboard/order-list.vue";
 import Login from "@/views/Login.vue";
 
@@ -50,21 +47,6 @@ const routes = [
         path: "/product-list",
         name: "product-list",
         component: ProductList,
-      },
-      {
-        path: "/create-category",
-        name: "create-category",
-        component: CreateCategory,
-      },
-      {
-        path: "/update-category/:id",
-        name: "update-category",
-        component: UpdateCategory,
-      },
-      {
-        path: "/categories-list",
-        name: "categories",
-        component: CategoryList,
       },
       {
         path: "/order-list",

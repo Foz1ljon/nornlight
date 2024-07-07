@@ -5,7 +5,7 @@
     <label for="title">
       <p>Product title</p>
       <input
-        class="py-2 border md:px-6 bg-primary/50 placeholder:text-primary"
+        class="py-2 border md:px-6 px-2 bg-primary/50 placeholder:text-primary"
         type="text"
         id="title"
         v-model="product.title"
@@ -15,7 +15,7 @@
     <label for="url">
       <p>Product image url</p>
       <input
-        class="py-2 border md:px-6 bg-primary/50 placeholder:text-primary"
+        class="py-2 border md:px-6 px-2 bg-primary/50 placeholder:text-primary"
         type="text"
         id="url"
         v-model="product.image"
@@ -26,7 +26,7 @@
     <label for="oldPrice">
       <p>Product old price</p>
       <input
-        class="py-2 border md:px-6 bg-primary/50 placeholder:text-primary"
+        class="py-2 border md:px-6 px-2 bg-primary/50 placeholder:text-primary"
         type="number"
         id="oldPrice"
         v-model="product.oldPrice"
@@ -37,7 +37,7 @@
     <label for="newPrice">
       <p>Product new price</p>
       <input
-        class="py-2 border md:px-6 bg-primary/50 placeholder:text-primary"
+        class="py-2 border md:px-6 px-2 bg-primary/50 placeholder:text-primary"
         type="number"
         id="newPrice"
         v-model="product.newPrice"
@@ -46,7 +46,7 @@
     </label>
 
     <button
-      class="flex items-center justify-center gap-4 py-2 px-6 w-[200px] bg-primary/50"
+      class="flex items-center justify-center gap-4 py-2 px-6  w-[260px] bg-blue-500 text-white font-semibold"
     >
       <i class="fa-solid fa-floppy-disk"></i>
       <p>Save</p>
@@ -71,9 +71,6 @@ const product = reactive({
   oldPrice: 0,
   newPrice: 0,
 });
-
-
-
 
 const add = (product) => {
   if (
