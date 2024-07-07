@@ -12,7 +12,6 @@
           >
             <label class="flex flex-col gap-3" for="username">
               <p class="text-xl font-semibold">Username</p>
-
               <input
                 class="py-3 pl-5 sm:pr-12 pr-7 bg-slate-100 border rounded-lg"
                 type="text"
@@ -21,7 +20,6 @@
                 placeholder="Enter username..."
               />
             </label>
-
             <label class="flex flex-col gap-3" for="password">
               <p class="text-xl font-semibold">Password</p>
               <input
@@ -43,12 +41,10 @@
 </template>
 
 <script setup>
-import api from "axios";
-import { reactive, ref } from "vue";
-import { toast } from "vue3-toastify";
-import "vue3-toastify/dist/index.css";
+import { reactive } from "vue";
+import { useAuthStore } from "@/stores/auth";
 
-const loader = ref(false);
+const authStore = useAuthStore();
 
 const form = reactive({
   username: "emilys",
@@ -56,19 +52,6 @@ const form = reactive({
 });
 
 const Login = () => {
-  api
-    .post("https://dummyjson.com/auth/login", form)
-    .then((res) => {
-      loader.value = true;
-      console.log(res.data.token);
-      localStorage.setItem("token", res.data.token);
-      toast.success("Logged in");
-    })
-    .catch((err) => {
-      toast.error(err);
-    })
-    .finally(() => {
-      loader.value = false;
-    });
+  authStore.login(form);
 };
 </script>

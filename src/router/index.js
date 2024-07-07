@@ -22,84 +22,102 @@ import UpdateProducts from "@/components/Dashboard/update-products.vue";
 import UpdateCategory from "@/components/Dashboard/update-category.vue";
 import Order from "@/components/Dashboard/order-list.vue";
 import Login from "@/views/Login.vue";
+import { isAuthenticated } from "./auth"; // Import the auth middleware
+
+const routes = [
+  {
+    path: "/login",
+    name: "login",
+    component: Login,
+  },
+  {
+    path: "/dashboard",
+    name: "dashboard",
+    redirect: "/product-list",
+    component: Dashboard,
+    meta: { requiresAuth: true },
+    children: [
+      {
+        path: "/create-product",
+        name: "create-product",
+        component: CreateProducts,
+      },
+      {
+        path: "/update-product/:id",
+        name: "update-product",
+        component: UpdateProducts,
+      },
+      {
+        path: "/product-list",
+        name: "product-list",
+        component: ProductList,
+      },
+      {
+        path: "/create-category",
+        name: "create-category",
+        component: CreateCategory,
+      },
+      {
+        path: "/update-category/:id",
+        name: "update-category",
+        component: UpdateCategory,
+      },
+      {
+        path: "/categories-list",
+        name: "categories",
+        component: CategoryList,
+      },
+      {
+        path: "/order-list",
+        name: "orders",
+        component: Order,
+      },
+    ],
+  },
+  {
+    path: "/",
+    name: "main-app",
+    component: Main,
+    children: [
+      {
+        path: "/",
+        name: "main",
+        component: MainPage,
+      },
+      { path: "/products", name: "all-products", component: AllProducts },
+      { path: "/products/:id", name: "detail", component: Details },
+      { path: "/about", name: "about-us", component: Aboutus },
+      { path: "/shopping", name: "shop&pay", component: ShopPayment },
+      { path: "/return", name: "return", component: Return },
+      { path: "/garant", name: "garant", component: Garant },
+      { path: "/contacts", name: "contacts", component: Contacts },
+      { path: "/blog", name: "blog", component: Blog },
+      { path: "/cart", name: "basket", component: Basket },
+      { path: "/favourites", name: "favourites", component: Favourites },
+      { path: "/catalog", name: "catalog", component: Catalog },
+    ],
+  },
+  { path: "/:pathMatch(.*)*", name: "NotFound", component: NotFound },
+];
 
 const router = createRouter({
   history: createWebHistory(),
-  routes: [
-    {
-      path: "/login",
-      name: "login",
-      component: Login,
-    },
-    {
-      path: "/dashboard",
-      name: "dashboard",
-      redirect: "/product-list",
-      component: Dashboard,
-      children: [
-        {
-          path: "/create-product",
-          name: "create-product",
-          component: CreateProducts,
-        },
-        {
-          path: "/update-product/:id",
-          name: "update-product",
-          component: UpdateProducts,
-        },
-        {
-          path: "/product-list",
-          name: "product-list",
-          component: ProductList,
-        },
-        {
-          path: "/create-category/",
-          name: "create-category",
-          component: CreateCategory,
-        },
-        {
-          path: "/update-category/:id",
-          name: "update-category",
-          component: UpdateCategory,
-        },
-        {
-          path: "/categories-list",
-          name: "categories",
-          component: CategoryList,
-        },
-        {
-          path: "/order-list",
-          name: "orders",
-          component: Order,
-        },
-      ],
-    },
-    {
-      path: "/",
-      name: "main-app",
-      component: Main,
-      children: [
-        {
-          path: "/",
-          name: "main",
-          component: MainPage,
-        },
-        { path: "/products", name: "all-products", component: AllProducts },
-        { path: "/products/:id", name: "detail", component: Details },
-        { path: "/about", name: "about-us", component: Aboutus },
-        { path: "/shopping", name: "shop&pay", component: ShopPayment },
-        { path: "/return", name: "return", component: Return },
-        { path: "/garant", name: "garant", component: Garant },
+  routes,
+});
 
-        { path: "/contacts", name: "contacts", component: Contacts },
-        { path: "/blog", name: "blog", component: Blog },
-        { path: "/cart", name: "basket", component: Basket },
-        { path: "/favourites", name: "favourites", component: Favourites },
-        { path: "/catalog", name: "catalog", component: Catalog },
-      ],
-    },
-  ],
+// Add a global navigation guard
+router.beforeEach((to, from, next) => {
+  if (to.matched.some((record) => record.meta.requiresAuth)) {
+    if (!isAuthenticated()) {
+      next({ name: "login" });
+    } else {
+      next();
+    }
+  } else if (to.name === "login" && isAuthenticated()) {
+    next({ name: "dashboard" });
+  } else {
+    next();
+  }
 });
 
 export default router;
-//
