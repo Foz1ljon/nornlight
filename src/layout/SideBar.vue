@@ -24,9 +24,7 @@
         to="/product-list"
       >
         <i class="fa-solid fa-pen-to-square"></i>
-        <p  class="sm:block hidden">
-          Manage product
-        </p>
+        <p class="sm:block hidden">Manage product</p>
       </router-link>
       <!--  -->
 

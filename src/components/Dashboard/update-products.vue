@@ -51,7 +51,7 @@
     </label>
 
     <button
-      class="flex items-center justify-center gap-4 py-2 px-6 w-[200px] bg-primary/50"
+      class="flex items-center justify-center gap-4 py-2 px-6 md:w-[260px] w-[210px] bg-blue-500 text-white font-semibold"
     >
       <i class="fa-solid fa-floppy-disk"></i>
       <p>Save</p>
@@ -64,7 +64,7 @@ import Loader from "../Loader.vue";
 import { onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useProductStore } from "@/stores/productsStore";
-
+import api from "@/api";
 const id = useRoute().params.id;
 const router = useRouter();
 const productsStore = useProductStore();
@@ -75,6 +75,6 @@ const update = (id, product) => {
 };
 
 onMounted(() => {
-  productsStore.fetchById(useRoute().params.id);
+  productsStore.fetchById(id);
 });
 </script>

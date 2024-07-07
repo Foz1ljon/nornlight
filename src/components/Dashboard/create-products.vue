@@ -59,9 +59,7 @@ import { useRouter } from "vue-router";
 import { useProductStore } from "@/stores/productsStore";
 import { onMounted, reactive } from "vue";
 
-onMounted(() => {
-  productsStore.fetchProducts();
-});
+
 
 const productsStore = useProductStore();
 
