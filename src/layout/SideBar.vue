@@ -24,7 +24,7 @@
         to="/product-list"
       >
         <i class="fa-solid fa-pen-to-square"></i>
-        <p v-tooltip.top="'Manage your products'" class="sm:block hidden">
+        <p  class="sm:block hidden">
           Manage product
         </p>
       </router-link>
@@ -42,8 +42,8 @@
         @click="logout"
         class="text-white flex gap-3 items-center md:text-lg sm:text-base text-3xl font-semibold [&.router-link-active]:bg-gray-400 [&.router-link-active]:text-black py-1 px-2"
       >
-        <p class="sm:block hidden">Orders</p>
         <p><i class="fa-solid fa-right-from-bracket"></i></p>
+        <p class="sm:block hidden">Logout</p>
       </button>
     </div>
   </div>

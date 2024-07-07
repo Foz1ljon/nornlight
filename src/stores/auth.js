@@ -7,6 +7,7 @@ import { useRouter } from "vue-router";
 export const useAuthStore = defineStore("auth", {
   state: () => ({
     token: localStorage.getItem("token") || "",
+    router: useRouter(),
   }),
   actions: {
     async login(form) {
@@ -14,10 +15,11 @@ export const useAuthStore = defineStore("auth", {
         const res = await api.post("https://dummyjson.com/auth/login", form);
         this.token = res.data.token;
         localStorage.setItem("token", res.data.token);
-        useRouter().push({ name: "dashboard" });
+        this.router.push({ name: "dashboard" });
         toast.success("Logged in");
       } catch (err) {
-        toast.error(err.response?.data?.message || "Login failed");
+        console.log(err);
+        toast.error("Login failed");
       } finally {
       }
     },

@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-import { onMounted } from "vue";
+import { onMounted, onBeforeMount } from "vue";
 import { useProductStore } from "@/stores/productsStore";
 import ProductCard from "./product-item.vue";
 import Loader from "../Loader.vue";
