@@ -64,7 +64,6 @@ import Loader from "../Loader.vue";
 import { onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useProductStore } from "@/stores/productsStore";
-import api from "@/api";
 const id = useRoute().params.id;
 const router = useRouter();
 const productsStore = useProductStore();
