@@ -204,5 +204,6 @@ const menu = [
   { name: "Гарантии", url: "/garant" },
   { name: "Контакты", url: "/contacts" },
   { name: "Блог", url: "/blog" },
+  { name: "Admin", url: "/dashboard" },
 ];
 </script>
