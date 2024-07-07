@@ -22,7 +22,6 @@ import UpdateProducts from "@/components/Dashboard/update-products.vue";
 import UpdateCategory from "@/components/Dashboard/update-category.vue";
 import Order from "@/components/Dashboard/order-list.vue";
 import Login from "@/views/Login.vue";
-import { isAuthenticated } from "./auth"; // Import the auth middleware
 
 const routes = [
   {
@@ -117,7 +116,6 @@ router.beforeEach((to, from, next) => {
     }
   } else if (to.name === "login" && token) {
     next({ name: "dashboard" });
-    router.push({name: "dashboard"})
   } else {
     next();
   }

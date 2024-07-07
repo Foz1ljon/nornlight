@@ -3,22 +3,22 @@
     <div class="w-full bg-[#F2F2F2] my-8 p-3 rounded-lg">
       <div class="flex flex-col gap-5">
         <div class="flex py-10 p-5 gap-8 flex-col items-start">
-          <div class="flex justify-around gap-20">
+          <div class="flex md:justify-around md:flex-row flex-col gap-20">
             <input
               type="text"
-              class="py-2 pl-8 pr-24 rounded-3xl border-2 border-primary bg-[#F2F2F2] outline-none"
+              class="py-2 pl-8 md:pr-24 pr-8 rounded-3xl border-2 border-primary bg-[#F2F2F2] outline-none"
               placeholder="ФИО"
               v-model="name"
             />
             <input
               type="text"
-              class="py-2 pl-8 pr-24 rounded-3xl border-2 border-primary bg-[#F2F2F2] outline-none"
+              class="py-2 pl-8 md:pr-24 pr-8 rounded-3xl border-2 border-primary bg-[#F2F2F2] outline-none"
               placeholder="телефон"
               v-model="phone"
             />
             <input
               type="email"
-              class="py-2 pl-8 pr-24 rounded-3xl border-2 border-primary bg-[#F2F2F2] outline-none"
+              class="py-2 pl-8 md:pr-24 pr-8 rounded-3xl border-2 border-primary bg-[#F2F2F2] outline-none"
               placeholder="Электронная почта"
               v-model="email"
             />
@@ -27,13 +27,13 @@
           <div class="flex flex-col gap-6 items-start">
             <p class="text-3xl text-primary font-bold">Доставка</p>
             <input
-              class="py-2 pl-8 pr-24 rounded-3xl border-2 border-primary bg-[#F2F2F2] outline-none"
+              class="py-2 pl-8 md:pr-24 pr-8 rounded-3xl border-2 border-primary bg-[#F2F2F2] outline-none"
               type="text"
               placeholder="Адрес доставки"
               v-model="address"
             />
             <textarea
-              class="h-[20vh] pl-8 pr-24 rounded-3xl border-2 border-primary bg-[#F2F2F2] outline-none"
+              class="h-[20vh] pl-8 md:pr-24 pr-8 rounded-3xl border-2 border-primary bg-[#F2F2F2] outline-none"
               placeholder="Комментарий"
               v-model="comment"
             ></textarea>
@@ -46,22 +46,23 @@
       <div class="flex flex-col gap-6">
         <p class="text-3xl text-primary font-bold">Оплата</p>
 
-        <div class="flex gap-6">
+        <div class="flex md:flex-row flex-col gap-6">
           <p class="text-base text-primary/50 font-semibold">
-            Товары.............................................12 300₽
+            Товары <b class="md:inline-block hidden"> ............</b>.................................12 300₽
           </p>
           <p class="text-base text-primary/50 font-semibold">
-            Доставка..............................................580₽
-          </p>
+            Доставка <b class="md:inline-block hidden"> ............</b>..................................580₽
+          </p>         
         </div>
+        
 
         <div class="flex flex-col gap-5">
           <p class="text-3xl text-primary font-bold">12 800₽</p>
 
-          <div class="flex gap-4">
+          <div class="flex md:flex-row flex-col-reverse gap-4">
             <button
               type="submit"
-              class="py-2.5 px-36 rounded-full bg-primary text-white"
+              class="py-2.5 md:px-36 rounded-full bg-primary text-white"
             >
               Купить
             </button>

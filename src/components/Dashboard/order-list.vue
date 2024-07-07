@@ -2,7 +2,10 @@
   <div class="container">
     <h2 class="text-primary text-2xl font-medium py-2 pb-5">Orders list</h2>
 
-    <div class="grid grid-cols-1 gap-4">
+    <div v-if="isEmpty" class="text-center text-lg py-5">
+      No orders available.
+    </div>
+    <div v-else class="grid grid-cols-1 gap-4">
       <div class="bg-white shadow-md rounded-lg p-4">
         <p class="text-lg font-semibold">Customer Information</p>
         <div class="mt-2">
@@ -48,16 +51,20 @@
     </div>
   </div>
 </template>
-
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, computed } from "vue";
 
 const orders = ref({
   cart: [],
   customer: {},
 });
 
-const isEmpty = ref(false);
+const isEmpty = computed(() => {
+  return (
+    orders.value.cart.length === 0 &&
+    Object.keys(orders.value.customer).length === 0
+  );
+});
 
 onMounted(() => {
   const storedOrders = JSON.parse(localStorage.getItem("orders")) || {
