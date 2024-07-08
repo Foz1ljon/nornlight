@@ -47,13 +47,14 @@
 
 <script setup>
 import Loader from "../Loader.vue";
-import { useProductStore } from "@/stores/productsStore";
+import { useProductStore } from "@/stores/productsStore"
 import { defineProps } from "vue";
 
 const productStore = useProductStore();
 const { deleteProduct, isLoad } = productStore;
 
 const remove = (id) => {
+ 
   productStore.deleteProduct(id);
 };
 
